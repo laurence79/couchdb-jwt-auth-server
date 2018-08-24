@@ -6,6 +6,7 @@ import {route as errorRoute,HTTPError} from "./http-error";
 import respUtils from "./response-utils";
 import createAPI from "./api";
 import {forEach} from "lodash";
+import cors from 'cors';
 
 const jsonParser = bodyParser.json();
 const urlEncodedParser = bodyParser.urlencoded({ extended: true });
@@ -47,6 +48,7 @@ export default function createApp(opts={}) {
   const couchOptions = getCouchOptions(couchdb);
   const app = express();
   app.disable('x-powered-by');
+  app.use(cors());
 
   // set a few helpers on the app
   const api = createAPI(couchOptions, {

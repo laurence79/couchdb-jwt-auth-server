@@ -51,7 +51,8 @@ const VALID = [
 
 const app = createApp(pick(argv, VALID));
 
-app.setup()
+app
+  .setup()
   .then(() => {
     const server = app.listen(argv.port || 3000, argv.bindAddress || '127.0.0.1', () => {
       const addr = server.address();
