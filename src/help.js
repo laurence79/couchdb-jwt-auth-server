@@ -24,6 +24,8 @@ Usage:
                           session options can be passed using the dot syntax.
   --endpoint <ep>         The web server mount path. Defaults to '/'.
   --port <port>           The port to start the HTTP server on. Defaults to 3000.
+  --bindAddress <address> The IP address to listen on. Defaults to 127.0.0.1. Use
+                          0.0.0.0 to listen for non-local requests.
   -h, --help              Show this message.
   -v, --version           Print the currently installed version of this server.
 `;

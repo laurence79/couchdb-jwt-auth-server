@@ -41,6 +41,7 @@ function panic(e) {
 
 const VALID = [
   'algorithms',
+  'bindAddress',
   'couchdb',
   'endpoint',
   'expiresIn',
@@ -52,7 +53,7 @@ const app = createApp(pick(argv, VALID));
 
 app.setup()
   .then(() => {
-    const server = app.listen(argv.port || 3000, '127.0.0.1', () => {
+    const server = app.listen(argv.port || 3000, argv.bindAddress || '127.0.0.1', () => {
       const addr = server.address();
       console.log('HTTP server listening at http://%s:%s', addr.address, addr.port);
     });
